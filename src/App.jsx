@@ -43,6 +43,10 @@ function App() {
     setCategory("food");
   };
 
+  const deleteTransaction = (id) => {
+    setTransactions(prevTransactions => prevTransactions.filter(t => t.id !== id));
+  };
+
   return (
     <div className="app">
       <h1>Finance Tracker</h1>
@@ -68,6 +72,7 @@ function App() {
         filterCategory={filterCategory}
         onFilterTypeChange={setFilterType}
         onFilterCategoryChange={setFilterCategory}
+        onDelete={deleteTransaction}
       />
     </div>
   );
